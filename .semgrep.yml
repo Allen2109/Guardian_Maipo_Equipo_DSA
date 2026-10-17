@@ -1,0 +1,21 @@
+rules:
+  - id: maipo-python-shell
+    languages: [python]
+    severity: ERROR
+    message: "No ejecutar comandos externos construidos a partir de entradas"
+    pattern: subprocess.run(..., shell=True, ...)
+  - id: maipo-tls
+    languages: [python]
+    severity: ERROR
+    message: "No desactivar la validacion de certificados TLS"
+    pattern: requests.$METODO(..., verify=False, ...)
+  - id: maipo-carga-yaml
+    languages: [python]
+    severity: ERROR
+    message: "Usar yaml.safe_load en configuraciones"
+    pattern: yaml.load(...)
+  - id: maipo-dependencia-no-verificada
+    languages: [python]
+    severity: ERROR
+    message: "Paquete ajeno sin procedencia verificada en la propuesta IA"
+    pattern: from plc_helper_utils import $X

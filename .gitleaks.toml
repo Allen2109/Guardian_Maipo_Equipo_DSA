@@ -1,0 +1,9 @@
+title = "Guardian Maipo: reglas de laboratorio"
+[extend]
+useDefault = true
+
+[[rules]]
+id = "maipo-secreto-de-demostracion"
+description = "Credencial sembrada solo durante la actividad controlada"
+regex = '''LAB-CLORO-[0-9]{4}-DEMO'''
+tags = ["academico", "credencial"]

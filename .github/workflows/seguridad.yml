@@ -1,0 +1,78 @@
+name: 02 - Controles DevSecOps
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  auditar:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - name: Checkout sin conservar token
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Python 3.12
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: '3.12'
+      - name: Instalar escáneres con verificación de integridad
+        run: |
+          python scripts/instalar_scanners.py
+          python -m pip install 'semgrep==1.180.0'
+          echo "$GITHUB_WORKSPACE/.tools" >> "$GITHUB_PATH"
+          mkdir -p reports
+      - name: Gitleaks - archivo y codigo actuales
+        id: gitleaks
+        continue-on-error: true
+        run: gitleaks dir --redact --config .gitleaks.toml --report-format json --report-path reports/gitleaks.json .
+      - name: Semgrep - patrones del codigo
+        id: semgrep
+        continue-on-error: true
+        run: semgrep scan --metrics off --config .semgrep.yml --error --json --output reports/semgrep.json src scripts tests
+      - name: Trivy - dependencias y vulnerabilidades
+        id: trivydep
+        continue-on-error: true
+        run: trivy fs --scanners vuln --severity HIGH,CRITICAL --exit-code 1 --format json --output reports/trivy-dependencias.json .
+      - name: OSV - componentes conocidos
+        id: osv
+        continue-on-error: true
+        run: osv-scanner scan source --lockfile requirements.txt --format json --output reports/osv.json
+      - name: Trivy config - restricciones del panel
+        id: red
+        continue-on-error: true
+        run: trivy config --config-check policies/ --check-namespaces builtin,user --severity HIGH,CRITICAL --exit-code 1 --format json --output reports/trivy-red.json infra/
+      - name: SBOM CycloneDX de los componentes
+        id: inventario
+        continue-on-error: true
+        run: trivy fs --format cyclonedx --output reports/sbom.cdx.json .
+      - name: Comprobar que realmente detectamos errores
+        id: negativos
+        continue-on-error: true
+        run: python scripts/pruebas_negativas.py
+      - name: Conservar los reportes de seguridad
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: informes-seguridad-${{ github.sha }}
+          path: reports/
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Compuerta final (no ocultar fallos)
+        if: always()
+        env:
+          TODOS: ${{ steps.gitleaks.outcome }},${{ steps.semgrep.outcome }},${{ steps.trivydep.outcome }},${{ steps.osv.outcome }},${{ steps.red.outcome }},${{ steps.inventario.outcome }},${{ steps.negativos.outcome }}
+        run: |
+          python - <<'PY'
+          import os
+          resultados = os.environ['TODOS'].split(',')
+          print('Estados de los siete controles:', ', '.join(resultados))
+          if len(resultados) != 7 or any(x != 'success' for x in resultados):
+              raise SystemExit('BLOQUEADO: uno o mas controles no pasaron. Revisar reportes.')
+          print('APROBADO: siete controles correctos')
+          PY

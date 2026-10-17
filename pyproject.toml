@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "guardian-maipo-academico"
+version = "1.0.0"
+description = "Simulador no conectado de seguridad DevSecOps para infraestructura crítica"
+requires-python = ">=3.12"
+dependencies = ["PyYAML==6.0.3"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,21 @@
+test_01_lectura_ficticia (test_core.SeguridadDelLector.test_01_lectura_ficticia) ... ok
+test_02_ausencia_de_credencial (test_core.SeguridadDelLector.test_02_ausencia_de_credencial) ... ok
+test_03_credencial_vacia (test_core.SeguridadDelLector.test_03_credencial_vacia) ... ok
+test_04_ningun_secreto_sale_por_stdout (test_core.SeguridadDelLector.test_04_ningun_secreto_sale_por_stdout) ... ok
+test_05_codigo_potencialmente_peligroso_se_rechaza (test_core.SeguridadDelLector.test_05_codigo_potencialmente_peligroso_se_rechaza) ... ok
+test_06_limites_didacticos (test_core.SeguridadDelLector.test_06_limites_didacticos) ... ok
+test_07_valores_invalidos (test_core.SeguridadDelLector.test_07_valores_invalidos) ... ok
+test_08_sensor_desconocido (test_core.SeguridadDelLector.test_08_sensor_desconocido) ... ok
+test_09_archivo_ilegible (test_core.SeguridadDelLector.test_09_archivo_ilegible) ... ok
+test_10_json_invalido (test_core.SeguridadDelLector.test_10_json_invalido) ... ok
+test_11_configuracion_no_contiene_credencial (test_core.SeguridadDelLector.test_11_configuracion_no_contiene_credencial) ... ok
+test_12_sin_equipos_reales (test_core.SeguridadDelLector.test_12_sin_equipos_reales) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.004s
+
+OK
+OK agua: comprobación estática satisfactoria
+OK energia: comprobación estática satisfactoria
+OK salud: comprobación estática satisfactoria
+OK transporte: comprobación estática satisfactoria

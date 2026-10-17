@@ -1,0 +1,6 @@
+{
+  "sector": "transporte",
+  "panel": "panel-flota-simulado",
+  "origenes_permitidos": ["192.0.2.0/24"],
+  "tipo": "solo-demostracion"
+}

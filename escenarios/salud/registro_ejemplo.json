@@ -1,0 +1,6 @@
+{
+  "sector": "salud",
+  "correlation_id": "LAB-TRACE-001",
+  "estado": "RECIBIDO",
+  "observacion": "Sin nombre, RUT, diagnóstico ni ficha clínica"
+}

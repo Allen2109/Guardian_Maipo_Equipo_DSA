@@ -1,0 +1,22 @@
+flowchart LR
+    subgraph PERSONA[Zona 1 · Identidad y operación]
+        OP[Operador y rol]
+    end
+    subgraph PANEL[Zona 2 · Supervisión representada]
+        HMI[Panel HMI conceptual]
+    end
+    subgraph SERV[Zona 3 · Servicio académico que SÍ existe]
+        API[Guardian Maipo · valida sensor]
+        JSON[(JSON de lecturas simuladas)]
+        IA[Asistente IA · únicamente modelo]
+    end
+    subgraph CONTROL[Zona 4 · Proceso NO conectado]
+        PLC[PLC / sensor conceptual]
+    end
+    OP -->|F1 · Acceso autorizado| HMI
+    HMI -->|F2 · Solicitud validada| API
+    API -->|Lectura local| JSON
+    JSON -->|Valor simulado| API
+    PLC -.->|F3 · SIN CONEXIÓN REAL| API
+    IA -.->|F4 · Solo consulta, sin secretos| API
+    API -->|Respuesta informativa| HMI

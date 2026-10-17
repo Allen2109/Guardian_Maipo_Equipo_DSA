@@ -1,0 +1,6 @@
+# Modelo estático para trivy config. SIN despliegue ni acceso industrial.
+sistema: panel-operacional-laboratorio
+origenes_permitidos:
+  - 192.0.2.0/24
+puerto_web: 443
+modo: simulado

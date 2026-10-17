@@ -1,0 +1,6 @@
+{
+  "sector": "energia",
+  "mensaje": "Indicador ficticio de interruptor: sin acción física",
+  "estado": "SIMULADO",
+  "dependencia_ejemplo": "Paquetes aprobados con version exacta"
+}

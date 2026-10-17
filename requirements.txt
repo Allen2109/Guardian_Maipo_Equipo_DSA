@@ -1,0 +1,2 @@
+# Dependencia directa, version fijada para reproducibilidad.
+PyYAML==6.0.3

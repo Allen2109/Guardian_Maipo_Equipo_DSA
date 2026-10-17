@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="480" viewBox="0 0 1160 480" role="img" aria-label="Diagrama de Guardian Maipo con fronteras de confianza y procesos simulados">
+<rect width="1160" height="480" fill="#f6f9fc"/>
+<text x="45" y="52" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="#14283c">GUARDIAN MAIPO · Mapa de confianza</text>
+<text x="45" y="81" font-family="Arial,sans-serif" font-size="16" fill="#3f6075">Diagrama original del laboratorio: únicamente el lector JSON local funciona.</text>
+<g fill="none" stroke="#93b1c9" stroke-width="2" stroke-dasharray="8 6">
+<rect x="35" y="122" width="234" height="264" rx="16"/><rect x="294" y="122" width="241" height="264" rx="16"/>
+<rect x="560" y="122" width="314" height="264" rx="16"/><rect x="898" y="122" width="230" height="264" rx="16"/>
+</g>
+<g font-size="14" font-family="Arial,sans-serif" fill="#356882" font-weight="bold" text-anchor="middle">
+<text x="152" y="148">B1 · PERSONAS</text><text x="414" y="148">B2 · SUPERVISIÓN</text><text x="717" y="148">B3 · APLICACIÓN</text><text x="1013" y="148">B4 · INDUSTRIAL</text>
+</g>
+<g font-family="Arial,sans-serif" text-anchor="middle">
+<rect x="58" y="210" width="185" height="84" fill="#e2f0fb" stroke="#3081a7" rx="12"/>
+<text x="150" y="242" font-size="18" font-weight="bold" fill="#123e5a">Operador</text><text x="150" y="265" font-size="13" fill="#355c75">Persona autorizada</text>
+<rect x="319" y="210" width="191" height="84" fill="#e5f4ee" stroke="#329578" rx="12"/>
+<text x="414" y="242" font-size="18" font-weight="bold" fill="#175e4a">Panel HMI</text><text x="414" y="265" font-size="13" fill="#315d4b">Solo modelado</text>
+<rect x="585" y="184" width="264" height="104" fill="#fff5e7" stroke="#bc8b32" stroke-width="2" rx="12"/>
+<text x="717" y="218" font-size="18" font-weight="bold" fill="#825a20">Guardian Maipo</text><text x="717" y="243" font-size="13" fill="#795b2e">Python · JSON · validación</text><text x="717" y="264" font-size="12" fill="#88652e">ÚNICO COMPONENTE FUNCIONAL</text>
+<rect x="921" y="210" width="184" height="84" fill="#fce9ef" stroke="#ba5575" rx="12"/>
+<text x="1013" y="240" font-size="18" font-weight="bold" fill="#7f2540">PLC / sensor</text><text x="1013" y="264" font-size="13" fill="#96425d">NO CONECTADO</text>
+<rect x="593" y="324" width="246" height="44" fill="#ebebfa" stroke="#8a78b1" rx="10"/>
+<text x="716" y="352" font-size="14" fill="#534878">IA: consulta conceptual</text>
+</g>
+<g stroke="#315a76" stroke-width="3" fill="none">
+<path d="M243 251 H318"/><path d="M309 242 l9 9 -9 9"/><path d="M510 251 H584"/><path d="M575 242 l9 9 -9 9"/>
+</g>
+<g stroke="#b45164" stroke-width="3" fill="none" stroke-dasharray="9 6"><path d="M849 251 H920"/><path d="M911 242 l9 9 -9 9"/></g>
+<path d="M716 324 V290" stroke="#8771ac" stroke-width="3" stroke-dasharray="6 5"/>
+<g font-family="Arial,sans-serif" font-size="12" fill="#355a70" text-anchor="middle"><text x="281" y="204">F1</text><text x="548" y="204">F2</text><text x="885" y="204">F3 bloqueado</text></g>
+<text x="46" y="424" fill="#3c6076" font-family="Arial,sans-serif" font-size="15">B1–B4: fronteras de confianza · F1/F2 autorizados · F3 sin enlace físico · F4 IA sin acceso a credenciales.</text>
+<text x="46" y="452" fill="#627f93" font-family="Arial,sans-serif" font-size="13">No hay escrituras a válvulas, sistemas de dosificación ni equipos industriales.</text>
+</svg>

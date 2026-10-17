@@ -1,0 +1,6 @@
+# Archivo de configuración SEGURO para la rama principal.
+# La contraseña NO se guarda aquí: se inyecta desde GitHub Secrets/entorno.
+sistema: Maipo Sur - laboratorio
+modo: simulacion
+password_env: PLC_PASSWORD
+fuente_datos: escenarios/agua/lecturas.json
