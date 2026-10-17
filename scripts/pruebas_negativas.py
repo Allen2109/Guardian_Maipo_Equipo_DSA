@@ -53,7 +53,7 @@ def verificar():
         (caso_red/'panel.yaml').write_text(
             'sistema: panel-operacional-laboratorio\n'
             'origenes_permitidos: [0.0.0.0/0]\n', encoding='utf-8')
-        ejecutar(['trivy','config','--config-check',str(base/'policies'),
+        ejecutar(['trivy','config','--misconfig-scanners','yaml','--config-check',str(base/'policies'),
                   '--check-namespaces','builtin,user','--severity','HIGH,CRITICAL',
                   '--exit-code','1','--format','json','--output',
                   str(base/'reports/fallo-red.json'),str(caso_red)])
