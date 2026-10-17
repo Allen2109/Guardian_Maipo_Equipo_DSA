@@ -62,8 +62,7 @@ El detalle STRIDE, prioridad e impacto está en [docs/amenazas/analisis.md](docs
 3. **¿Apaga una protección?** Utiliza `verify=False`, que desactiva la verificación del certificado TLS.
 4. **¿A dónde envía los datos?** Usa un destino denominado `TELEMETRIA` sin definición ni justificación en el fragmento propuesto.
 
-**Veredicto: RECHAZAR** el parche. Texto completo: [docs/auditoria-ia/veredicto.md](docs/auditoria-ia/veredicto.md). **PR real:** pendiente de abrir/documentar; no se inventa número.
-
+**Veredicto: RECHAZAR** el parche de IA. Análisis completo: [veredicto.md](docs/auditoria-ia/veredicto.md). **PR real:** [Pull Request #1 - Auditoría de IA](https://github.com/Allen2109/Guardian_Maipo_Equipo_DSA/pull/1). **Estado:** Abierta, sin fusionar con main.
 ## 7. Pendientes antes de una planta real
 
 Rotación y revocación comprobada de secretos; autenticación con roles; segmentación OT/TI; autorización del fabricante; pruebas de fallos y recuperación; monitoreo y bitácoras protegidas; validación por el personal de operación. **Nada de esto se considera implantado.**
