@@ -19,3 +19,19 @@ El cambio podría aceptar datos alterados o enviar lecturas a un destinatario no
 Una IA puede ayudar a redactar y detectar indicios, pero no firma aprobaciones. El cambio requeriría un paquete acreditado, validación de entrada, TLS verificado, finalidad de los datos especificada, pruebas y autorización humana documentada.
 
 **Tipo de evidencia:** análisis estático de un enunciado de laboratorio, sin ejecución de programa inseguro. **PR en GitHub:** aún no creada/confirmada por el equipo.
+
+## Dictamen del equipo para la Pull Request
+
+**Integrantes:** Daniel Silva, Allen Ramirez y Antonella Mancilla.
+
+**Decisión:** RECHAZAR la propuesta generada por inteligencia artificial en su estado actual.
+
+**Justificación:**
+- La dependencia propuesta no tiene un origen verificado.
+- Las entradas externas podrían utilizarse de forma insegura en comandos.
+- La validación del certificado TLS está desactivada.
+- Se propone transmitir información a un destino no justificado.
+
+**Condiciones para aprobar una nueva versión:** verificar las dependencias, validar las entradas, mantener las protecciones de comunicación y justificar el destino de los datos.
+
+**Conclusión:** El equipo decide mantener el código seguro original y no fusionar la propuesta hasta resolver estos riesgos.
