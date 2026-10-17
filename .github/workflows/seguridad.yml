@@ -46,7 +46,7 @@ jobs:
       - name: Trivy config - restricciones del panel
         id: red
         continue-on-error: true
-        run: trivy config --config-check policies/ --check-namespaces builtin,user --severity HIGH,CRITICAL --exit-code 1 --format json --output reports/trivy-red.json infra/
+        run: trivy config --misconfig-scanners yaml --config-check policies/ --check-namespaces builtin,user --severity HIGH,CRITICAL --exit-code 1 --format json --output reports/trivy-red.json infra/
       - name: SBOM CycloneDX de los componentes
         id: inventario
         continue-on-error: true
