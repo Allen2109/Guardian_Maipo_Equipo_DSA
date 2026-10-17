@@ -36,21 +36,21 @@ El detalle STRIDE, prioridad e impacto está en [docs/amenazas/analisis.md](docs
 
 | Control | Implementación | Estado verificable |
 |---|---|---|
-| Código propio | Gitleaks + Semgrep | Configurados; ejecución remota pendiente |
-| Dependencias | Trivy FS + OSV-Scanner | Configurados; ejecución remota pendiente |
-| Configuración | Trivy config con regla propia | Configurado; ejecución remota pendiente |
+| Código propio | Gitleaks + Semgrep | **Aprobados en GitHub Actions** para `4a47309` según captura; URL específica pendiente |
+| Dependencias | Trivy FS + OSV-Scanner | **Aprobados en GitHub Actions** para `4a47309` según captura; URL específica pendiente |
+| Configuración | Trivy config con regla propia | **Aprobado en GitHub Actions** para `4a47309` según captura; URL específica pendiente |
 | Inventario | CycloneDX en Trivy + SBOM local | SBOM local generada; artefacto remoto pendiente |
 | Integración | Unittest + compilación + escenarios | **12/12 pruebas y 4/4 escenarios aprobados localmente** |
 
-**URL de Actions del nuevo repositorio:** `PENDIENTE: PEGAR ENLACE REAL`  
-**URL de ejecución con fallo intencional:** `PENDIENTE`  
-**URL de ejecución corregida en verde:** `PENDIENTE`
+**URL de Actions del nuevo repositorio:** https://github.com/Allen2109/Guardian_Maipo_Equipo_DSA/actions  
+**URL de ejecución con fallo intencional:** pendiente de enlazar; Gitleaks detectó 1 credencial ficticia según captura.  
+**URL de ejecución corregida en verde:** https://github.com/Allen2109/Guardian_Maipo_Equipo_DSA/actions/runs/38987814463
 
 ## 5. Hallazgos y gestión
 
 | Hallazgo | Gravedad | Decisión y justificación | Responsable / estado |
 |---|---|---|---|
-| Contraseña ficticia escrita dentro de un archivo de prueba temporal | Alta didáctica | **Corregir:** usar `password_env: PLC_PASSWORD` y sustituir la credencial si se hubiese comprometido | Allen / demostración preparada, no confirmada en Actions |
+| Contraseña ficticia escrita dentro de un archivo de prueba temporal | Alta didáctica | **Corregir:** usar `password_env: PLC_PASSWORD` y sustituir la credencial si se hubiese comprometido | Allen / rojo y verde confirmados en capturas; agregar enlace del run rojo |
 | Entrada que se concatena a un comando en el parche de IA | Alta | **Rechazar:** no ejecutar comandos externos con datos sin validar | Antonella / análisis escrito |
 | Regla que admite origen global `0.0.0.0/0` | Alta | **Corregir:** limitar a una red de documentación aprobada | Allen / política preparada |
 | Requisitos de operación industrial real | Muy alta | **Postergar:** pruebas con fabricante, segmentación, autorizaciones y recuperación antes de considerar despliegue | Daniel / fuera del alcance académico |
